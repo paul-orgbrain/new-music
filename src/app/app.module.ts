@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpModule, JsonpModule } from '@angular/http';
+// import { HttpModule, JsonpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 // import { MaterialModule } from '@angular/material';
@@ -18,65 +18,78 @@ import { SettingsService } from '../music/settings.service';
 import { NetService } from './services/net.service';
 import { SamplesService } from '../music/samples.service';
 
-import { LoadDialog } from './dialogs/load.dialog'
-import { MetroDialog } from './dialogs/metro.dialog'
+import { LoadDialog } from './dialogs/load.dialog';
+import { MetroDialog } from './dialogs/metro.dialog';
 import { MetroSlideComponent } from './components/metro-slide.component';
-import { MonitorComponent } from './components/monitor.component'
-import { SliderValComponent } from './slider-val.component'
-import { LocalStorageModule } from 'angular-2-local-storage';
+import { MonitorComponent } from './components/monitor.component';
+import { SliderValComponent } from './slider-val.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule, MatFormFieldModule, MatSelectModule, MatInputModule,
-     MatCardModule, MatIconModule, MatButtonModule, MatSidenavModule, MatListModule,
-      MatToolbarModule, MatSnackBarModule, MatMenuModule, MatAutocompleteModule, MatTooltipModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { DrumkitScoreDetailComponent } from './drumkit-score-detail/drumkit-score-detail.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-    imports: [BrowserModule, HttpModule, JsonpModule, FormsModule, ReactiveFormsModule,
-        BrowserAnimationsModule,
-        MatButtonModule,
-        MatSnackBarModule,
-      //  MatPaginatorModule,
-      //  MatProgressSpinnerModule,
-      //  MatProgressBarModule,
-     //   MatCheckboxModule,
-     //   MatTabsModule,
-        MatInputModule,
-        MatCardModule,
-        MatIconModule,
-        FormsModule,
-        MatSelectModule,
-        MatListModule,
-     //   MatTableModule,
-     //   CdkTableModule,
-       MatToolbarModule,
-        ReactiveFormsModule, // <-- #2 add to @NgModule imports,
-     //   MatExpansionModule,
-        MatSidenavModule,
-        MatFormFieldModule,
-    //    MatDatepickerModule,
-   //     MatNativeDateModule,
-   //     MatSortModule,
-        MatDialogModule,
-        MatAutocompleteModule,
-   //     MatButtonToggleModule,
-       MatTooltipModule,
-     MatMenuModule,
-
-        LocalStorageModule.withConfig({
-            prefix: 'my-app',
-            storageType: 'localStorage'
-        })
-    ],
-    declarations: [AppComponent, AIDetailComponent, InstrumentDetailComponent, PlayerDetailComponent,
-        MusicComponent, MusicAppComponent, LoadDialog, MetroDialog, MetroSlideComponent, 
-        MonitorComponent, SliderValComponent, DrumkitScoreDetailComponent],
-    providers: [{ provide: DBService, useClass: FirebaseDBService },
-        SFService, SamplesService, NetService, SettingsService],
-    bootstrap: [AppComponent],
-    entryComponents: [LoadDialog, MetroDialog]
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    // JsonpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatCardModule,
+    MatIconModule,
+    FormsModule,
+    MatSelectModule,
+    MatListModule,
+    MatToolbarModule,
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatAutocompleteModule,
+    MatTooltipModule,
+    MatMenuModule,
+  ],
+  declarations: [
+    AppComponent,
+    AIDetailComponent,
+    InstrumentDetailComponent,
+    PlayerDetailComponent,
+    MusicComponent,
+    MusicAppComponent,
+    LoadDialog,
+    MetroDialog,
+    MetroSlideComponent,
+    MonitorComponent,
+    SliderValComponent,
+    DrumkitScoreDetailComponent,
+  ],
+  providers: [
+    { provide: DBService, useClass: FirebaseDBService },
+    SFService,
+    SamplesService,
+    NetService,
+    SettingsService,
+  ],
+  bootstrap: [AppComponent],
+  // entryComponents: [LoadDialog, MetroDialog],
 })
-
-
-export class AppModule { }
+export class AppModule {}

@@ -1,96 +1,103 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatDialogRef, MatSnackBar } from '@angular/material';
-import { DBService } from './services/db.service'
-import { MusicAppComponent } from './music-app.component'
-import { SliderValComponent } from './slider-val.component'
+import {
+  MatDialog,
+  MatDialogConfig,
+  MatDialogRef,
+} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DBService } from './services/db.service';
+import { MusicAppComponent } from './music-app.component';
 
-import { LoadDialog } from './dialogs/load.dialog'
-import { MetroDialog } from './dialogs/metro.dialog'
-
+import { LoadDialog } from './dialogs/load.dialog';
+import { MetroDialog } from './dialogs/metro.dialog';
 
 import { SettingsService } from '../music/settings.service';
 
 @Component({
-    moduleId: 'app/',
-    selector: 'my-app',
-    templateUrl: "app.html"
+  selector: 'app-root',
+  templateUrl: 'app.html',
+  standalone: false,
 })
-
 export class AppComponent {
+  @ViewChild(MusicAppComponent) musicApp: MusicAppComponent;
 
-    @ViewChild(MusicAppComponent) musicApp: MusicAppComponent
+  user: any = null;
 
-    user: any = null
+  constructor(
+    private dbService: DBService,
+    public dialog: MatDialog,
+    public snackBar: MatSnackBar,
+    public settings: SettingsService
+  ) {
+    dbService.register((user: any) => {
+      this.user = user;
+    });
 
-    constructor(private dbService: DBService, public dialog: MatDialog, public snackBar: MatSnackBar, public settings: SettingsService) {
-        dbService.register((user: any) => {
-            this.user = user
+    //  this.visibility()
+  }
 
-        })
+  signIn() {
+    this.dbService.signIn();
+    console.log('signing in');
+  }
 
-        //  this.visibility()
+  signOut() {
+    this.dbService.signOut();
+    console.log('signing out');
+  }
+
+  save() {
+    if (this.musicApp.music.id !== null) {
+      this.snackBar.open(' Already saved', this.musicApp.music.id, {
+        duration: 2000,
+      });
+    } else {
+      this.musicApp.music.saveDB(this.dbService);
+      this.snackBar.open(' Saved ', this.musicApp.music.id || 'Yikes', {
+        duration: 2000,
+      });
     }
+  }
 
-    signIn() {
-        this.dbService.signIn();
-        console.log("signing in")
-    }
+  load() {
+    const config = new MatDialogConfig();
 
+    const dialogRef: MatDialogRef<LoadDialog> = this.dialog.open(
+      LoadDialog,
+      config
+    );
+    dialogRef.componentInstance.setUp(this.dbService, this.musicApp);
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(result);
+    });
+  }
 
-    signOut() {
-        this.dbService.signOut()
-        console.log("signing out")
-    }
+  metroSetup() {
+    const config = new MatDialogConfig();
 
-    save() {
+    const dialogRef: MatDialogRef<MetroDialog> = this.dialog.open(
+      MetroDialog,
+      config
+    );
+    dialogRef.componentInstance.metro = this.musicApp.music.metro;
 
-        if (this.musicApp.music.id !== null) {
-            this.snackBar.open(" Already saved", this.musicApp.music.id, {
-                duration: 2000,
-            })
-        } else {
-            this.musicApp.music.saveDB(this.dbService)
-            this.snackBar.open(" Saved ", this.musicApp.music.id, {
-                duration: 2000,
-            })
-        }
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(result);
+    });
+  }
 
-    }
+  clean() {
+    this.dbService.clean();
+    this.snackBar.open('Argghhhhhhh  ', 'OH NO!', {
+      duration: 4000,
+    });
+  }
 
-    load() {
-        const config = new MatDialogConfig();
+  newMusic() {
+    this.musicApp.newMusic();
+  }
 
-        const dialogRef: MatDialogRef<LoadDialog> = this.dialog.open(LoadDialog, config)
-        dialogRef.componentInstance.setUp(this.dbService, this.musicApp)
-        dialogRef.afterClosed().subscribe((result: any) => {
-            console.log(result)
-        });
-
-    }
-
-    metroSetup() {
-        const config = new MatDialogConfig();
-
-        const dialogRef: MatDialogRef<MetroDialog> = this.dialog.open(MetroDialog, config)
-        dialogRef.componentInstance.metro = this.musicApp.music.metro
-
-        dialogRef.afterClosed().subscribe((result: any) => {
-            console.log(result)
-        });
-    }
-
-    clean() {
-        this.dbService.clean()
-        this.snackBar.open("Argghhhhhhh  ", "OH NO!", {
-            duration: 4000,
-        })
-    }
-
-    newMusic() {
-        this.musicApp.newMusic()
-    }
-
-    /*
+  /*
       visibility() {
 
 

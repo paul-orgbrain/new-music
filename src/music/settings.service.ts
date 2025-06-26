@@ -2,25 +2,21 @@
 // https://github.com/grevory/angular-local-storage#set
 
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from 'angular-2-local-storage';
-
 
 @Injectable()
 export class SettingsService {
+  // @LocalStorageModule()
 
-    // @LocalStorageModule()
+  playahead = 0.1;
 
-    playahead = 0.1
+  constructor() {
+    const x = localStorage.getItem('playahead');
+    console.log(' playhead loaded =', x);
+    if (x !== null) this.playahead = +x;
+  }
 
-    constructor( private localStorageService: LocalStorageService) {
-        const x  = this.localStorageService.get("playahead")
-        console.log(" playhead loaded =", x )
-        if (x !== null) this.playahead = +x
-    }
-
-    setPlayahead(x: number){
-         this.playahead = x
-         this.localStorageService.set("playahead", this.playahead)
-    }
-
+  setPlayahead(x: number) {
+    this.playahead = x;
+    localStorage.setItem('playahead', '' + this.playahead);
+  }
 }

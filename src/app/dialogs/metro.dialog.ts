@@ -1,31 +1,21 @@
 import { Component } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
-import { Metro } from '../../music/metro'
-import { SliderValComponent } from '../slider-val.component'
+import { MatDialogRef } from '@angular/material/dialog';
+import { Metro } from '../../music/metro';
 
-
-declare var firebase: any
-
+declare var firebase: any;
 
 @Component({
-    moduleId: 'app/dialogs/',
-    selector: 'metro-dialog',
-    templateUrl: 'metro.html'
+  moduleId: 'app/dialogs/',
+  selector: 'metro-dialog',
+  templateUrl: 'metro.html',
+  standalone: false,
 })
-
-
-
 export class MetroDialog {
+  metro: Metro;
 
-    metro: Metro
+  constructor(public dialogRef: MatDialogRef<MetroDialog>) {}
 
-    constructor(public dialogRef: MatDialogRef<MetroDialog>) {
-
-    }
-
-    done() {
-        this.dialogRef.close("LOADED")
-    }
-
+  done() {
+    this.dialogRef.close('LOADED');
+  }
 }
-

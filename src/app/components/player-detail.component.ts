@@ -1,54 +1,56 @@
-import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
-import { Player } from '../music/player'
-import { AIDetailComponent } from './ai-detail.component'
-import { InstrumentDetailComponent } from '../components/instrument-detail.component'
-import { AI } from '../music/ai'
-
-import { MatCard } from '@angular/material'
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+} from '@angular/core';
+import { Player } from '../music/player';
+import { AIDetailComponent } from './ai-detail.component';
+import { InstrumentDetailComponent } from '../components/instrument-detail.component';
+import { AI } from '../music/ai';
+import { MatCard } from '@angular/material/card';
+import { DrumPlayer } from '../../music/drumplayer';
 
 @Component({
-    moduleId: "app/music/",
-    selector: "player-detail",
-    templateUrl: "player-detail.html"
+  moduleId: 'app/music/',
+  selector: 'player-detail',
+  templateUrl: 'player-detail.html',
+  standalone: false,
 })
-
-
-
 export class PlayerDetailComponent {
-    @ViewChild(MatCard) card: MatCard
-    @Input() player: Player;
-    @Output() playerSelected = new EventEmitter();
+  @ViewChild(MatCard) card: MatCard;
+  @Input() player: Player;
+  @Output() playerSelected = new EventEmitter();
 
-    soloed = false
-    muted = false
+  soloed = false;
+  muted = false;
 
+  constructor() {}
 
-    constructor() {
+  getAI(): AI {
+    return this.player.ai;
+  }
 
-    }
+  solo() {
+    this.player.solo();
+  }
 
-    getAI(): AI {
-        return this.player.ai
+  mute() {
+    this.player.mute();
+  }
 
-    }
+  toggleRecord() {
+    const player = this.player;
+    player.recording = !player.recording;
+  }
 
-    solo() {
-        this.player.solo()
-    }
+  removeMe() {
+    this.player.removeMe();
+  }
 
-    mute() {
-        this.player.mute()
-    }
-
-    toggleRecord() {
-
-        const player = this.player
-        player.recording = !player.recording;
-
-    }
-
-    removeMe() {
-        this.player.removeMe()
-    }
-
+  get drumPlayer(): DrumPlayer {
+    if (this.player instanceof DrumPlayer) return this.player as DrumPlayer;
+    throw Error(' Should be a drummer');
+  }
 }

@@ -1,58 +1,55 @@
-
 import { map, startWith } from 'rxjs/operators';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { SFService } from '../services/sf.service'
-import { SFInstrument } from '../../music/sfinstrument'
+import { SFService } from '../services/sf.service';
+import { SFInstrument } from '../../music/sfinstrument';
 import { FormControl } from '@angular/forms';
-import { MatAutocomplete, MatAutocompleteTrigger } from '@angular/material'
+import { MatAutocomplete } from '@angular/material/autocomplete';
+import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import { Instrument } from '../../music/instrument';
 
 // import 'rxjs/add/operator/startWith';
 
 @Component({
-    moduleId: "app/music/",
-    selector: "instrument-detail",
-    templateUrl: "instrument-detail.html"
-
+  moduleId: 'app/music/',
+  selector: 'instrument-detail',
+  templateUrl: 'instrument-detail.html',
+  standalone: false,
 })
+export class InstrumentDetailComponent implements OnInit {
+  @Input() inst: Instrument;
+  @ViewChild(MatAutocompleteTrigger) auto: MatAutocomplete;
+  sfInstrument: SFInstrument;
+  nameCtrl: FormControl;
+  name: string;
+  filteredNames: any;
+  displayName: string;
+  val: string;
 
-
-export class InstrumentDetailComponent implements OnInit{
-    @Input() inst: SFInstrument;
-    @ViewChild(MatAutocompleteTrigger) auto: MatAutocomplete
-
-    nameCtrl: FormControl;
-    name: string
-    filteredNames: any;
-    displayName: string
-    val: string
-
-    constructor(private sfService: SFService) {
-        this.nameCtrl = new FormControl();
-        this.filteredNames = this.nameCtrl.valueChanges.pipe(
-            startWith(null),
-            map(name => this.filterNames(name)), );
+  constructor(private sfService: SFService) {
+    this.nameCtrl = new FormControl();
+    this.filteredNames = this.nameCtrl.valueChanges.pipe(
+      startWith(null),
+      map((name) => this.filterNames(name))
+    );
 
     //    console.log(name)
-        this.nameCtrl.valueChanges.subscribe((val) => {
+    this.nameCtrl.valueChanges.subscribe((val) => {
+      console.log(val);
 
-            console.log(val)
+      if (this.sfService.names.indexOf(val) >= 0) {
+        this.sfInstrument.setInst(val);
+      }
+    });
+  }
 
-            if (this.sfService.names.indexOf(val) >= 0) {
-                this.inst.setInst(val)
-            }
-        })
-    }
+  ngOnInit() {
+    this.sfInstrument = this.inst as SFInstrument;
+    this.nameCtrl.setValue(this.inst.name);
+  }
 
-
-    ngOnInit() {
-        this.nameCtrl.setValue(this.inst.name)
-    }
-
-    filterNames(val: string) {
-        return val ? this.sfService.names.filter((s) => new RegExp(val, 'gi').test(s)) : this.sfService.names;
-    }
-
-
+  filterNames(val: string) {
+    return val
+      ? this.sfService.names.filter((s) => new RegExp(val, 'gi').test(s))
+      : this.sfService.names;
+  }
 }
-
-

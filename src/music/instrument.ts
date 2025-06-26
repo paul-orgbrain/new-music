@@ -1,4 +1,4 @@
-interface Instrument {
-    name: string
-    mute(yes: boolean);
+export interface Instrument {
+  name: string;
+  mute: (yes: boolean) => void;
 }

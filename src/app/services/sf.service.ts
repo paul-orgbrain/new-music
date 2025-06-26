@@ -1,36 +1,26 @@
-
-import {map} from 'rxjs/operators';
-import { Component, Input } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
-
-
-
-//import { CORE_DIRECTIVES, FORM_DIRECTIVES } from 'angular2/angular2';
+import { HttpClient } from '@angular/common/http'; // updated import
 
 @Injectable()
 export class SFService {
+  names: Array<string> = [];
 
-    names:Array<string> = []
-    
-    constructor(private http: Http) {
-        this.getJSON()
-    }
+  constructor(private http: HttpClient) {
+    // updated type
+    this.getJSON();
+  }
 
-    public getNames() :Array<string> {
-        return this.names
-    }
+  public getNames(): Array<string> {
+    return this.names;
+  }
 
-    public getJSON() {
-
-        this.http.get('./sfnames.json').pipe(
-            map(res => res.json()))
-            .subscribe(
-            data => this.names = data,
-            err => console.log(err),
-            () => console.log('LOad names Completed'));
-        
-    }
-
+  public getJSON() {
+    this.http
+      .get<Array<string>>('./sfnames.json') // updated to use HttpClient, typed response
+      .subscribe(
+        (data) => (this.names = data),
+        (err) => console.log(err),
+        () => console.log('LOad names Completed')
+      );
+  }
 }

@@ -1,23 +1,23 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { DrumPlayer } from 'src/music/drumplayer';
+import { DrumPlayer } from '../../music/drumplayer';
 
 @Component({
-    selector: 'app-drumkit-score-detail',
-    templateUrl: './drumkit-score-detail.component.html',
-    styleUrls: ['./drumkit-score-detail.component.css']
+  selector: 'app-drumkit-score-detail',
+  templateUrl: './drumkit-score-detail.component.html',
+  styleUrls: ['./drumkit-score-detail.component.css'],
+  standalone: false,
 })
 export class DrumkitScoreDetailComponent implements OnInit {
+  @Input('player') player: DrumPlayer;
 
-    @Input('player') player: DrumPlayer
-   
-    constructor() { }
+  constructor() {}
 
-    ngOnInit() {
+  ngOnInit() {}
+
+  update() {
+    if (this.player) {
+      console.log(this.player.scoreText);
+      this.player.update();
     }
-
-
-    update() {
-        console.log(this.player.scoreText);
-        this.player.update();
-    }
+  }
 }

@@ -1,28 +1,24 @@
-
 export class Monitor {
-    underruns = 0
-    maxUnder: number
+  underruns = 0;
+  maxUnder: number;
 
-    constructor() {
+  constructor() {}
 
+  spareTime(t: number) {
+    let f = false;
+    if (t < 0) {
+      this.underruns++;
+      f = true;
     }
 
-    spareTime(t: number) {
-        let f = false
-        if (t < 0) {
-            this.underruns++
-            f = true
-        }
-
-        if (this.maxUnder === undefined || t < this.maxUnder) {
-            this.maxUnder = +t.toFixed(3)
-            f = true
-        }
+    if (this.maxUnder === undefined || t < this.maxUnder) {
+      this.maxUnder = +t.toFixed(3);
+      f = true;
     }
+  }
 
-    reset() {
-        this.maxUnder = undefined
-        this.underruns = 0
-    }
-
+  reset() {
+    this.maxUnder = -1;
+    this.underruns = 0;
+  }
 }
