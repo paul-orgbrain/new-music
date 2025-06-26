@@ -20,7 +20,7 @@ import { SamplesService } from '../music/samples.service';
 
 import { LoadDialog } from './dialogs/load.dialog';
 import { MetroDialog } from './dialogs/metro.dialog';
-import { MetroSlideComponent } from './components/metro-slide.component';
+import { MetroSlideComponent } from './components/metro-slide/metro-slide.component';
 import { MonitorComponent } from './components/monitor.component';
 import { SliderValComponent } from './slider-val.component';
 
