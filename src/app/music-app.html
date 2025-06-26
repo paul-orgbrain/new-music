@@ -23,7 +23,7 @@
         matTooltip="{{playstopTip}}"
         (click)="play()"
       >
-        <mat-icon> {{play_stop_icon}} </mat-icon>
+        <!-- <mat-icon> {{play_stop_icon}} </mat-icon> -->
       </button>
 
       <button
@@ -33,7 +33,7 @@
         mat-raised-button
         (click)="pause()"
       >
-        <mat-icon>pause</mat-icon>
+        <!-- <mat-icon>pause</mat-icon> -->
       </button>
 
       <button
@@ -43,7 +43,7 @@
         matTooltip="START RECORDING"
         style="color: #ff0000"
       >
-        <mat-icon>fiber_manual_record</mat-icon>
+        <!-- <mat-icon>fiber_manual_record</mat-icon> -->
       </button>
 
       <button
@@ -70,7 +70,7 @@
           alt="midiin"
         />
       </button>
-
+      <!--
       <button
         mat-button
         class="btn1"
@@ -78,9 +78,9 @@
         style="float: middle"
       >
         {{music.pulse.timeSig}}
-      </button>
+      </button> -->
 
-      <mat-menu #list="matMenu">
+      <!-- <mat-menu #list="matMenu">
         <mat-list>
           <mat-list-item
             class="hiLi"
@@ -90,7 +90,7 @@
             {{sig}}
           </mat-list-item>
         </mat-list>
-      </mat-menu>
+      </mat-menu> -->
 
       <button
         *ngIf="slidershow"
@@ -115,11 +115,11 @@
         {{music.pulse.bpm}}
       </button>
 
-      <monitor [monitor]="monitor" style="float: right"></monitor>
+      <!-- <music-monitor [monitor]="monitor" style="float: right"></music-monitor> -->
 
       <div *ngIf="slidershow">
         <!--  style="width: 100%"-->
-        <metro-slide #linechart> </metro-slide>
+        <!-- <metro-slide #linechart> </metro-slide> -->
       </div>
     </div>
   </div>

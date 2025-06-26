@@ -1,15 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>NewMusic</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>NewMusic</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBHuPKVasm8Zz3VORTDS_f85UMGzg4nJuQ",
+        authDomain: "genesis-3aa93.firebaseapp.com",
+        databaseURL: "https://genesis-3aa93.firebaseio.com",
+        storageBucket: "genesis-3aa93.appspot.com",
+        messagingSenderId: "233818584097",
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script src="assets/js/xorgen.js"></script>
+    <script src="assets/js/global.js "></script>
+    <script src="assets/js/instruments/soundfont-player.js"></script>
+
+    <script src="assets/js/synaptic/synaptic.js"></script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>

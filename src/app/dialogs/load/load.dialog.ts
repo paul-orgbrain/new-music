@@ -1,22 +1,14 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { MusicAppComponent } from '../music-app.component';
-import { DBService } from '../services/db.service';
+import { MusicAppComponent } from '../../music-app.component';
+import { DBService } from '../../services/db.service';
 
 declare var firebase: any;
 
 @Component({
   selector: 'load-dialog',
   standalone: false,
-  template: `
-    <mat-list>
-      <mat-list-item *ngFor="let item of list" (click)="doLoad(item)">
-        <div style="width:100%">
-          <strong>{{ item.title }}</strong>
-        </div>
-      </mat-list-item>
-    </mat-list>
-  `,
+  templateUrl: './load.html',
 })
 export class LoadDialog {
   db: DBService;

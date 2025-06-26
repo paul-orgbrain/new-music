@@ -1,0 +1,11 @@
+<div
+  *ngIf="monitor.underruns"
+  (click)="monitor.reset()"
+  style="background: red"
+>
+  {{ monitor.underruns }} {{ monitor.maxUnder }}
+</div>
+
+<div *ngIf="!monitor.underruns" (click)="monitor.reset()">
+  {{ monitor.underruns }} {{ monitor.maxUnder }}
+</div>

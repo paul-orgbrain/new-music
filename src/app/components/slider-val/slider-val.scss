@@ -1,0 +1,18 @@
+
+    svg text {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: default;
+    }
+
+    svg text::selection {
+        background: none;
+    }
+
+    .dragHandle:hover {
+        fill: yellow;
+        cursor: pointer;
+    }
+

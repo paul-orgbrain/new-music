@@ -62,6 +62,7 @@ export class DrumPlayer implements Ticker, Instrument {
       });
     });
   }
+  loading: any;
 
   start() {
     console.log(' DRUM START ');

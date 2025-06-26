@@ -14,7 +14,7 @@ declare var audioContext: any;
 
 @Component({
   selector: 'musicApp',
-  templateUrl: 'music-app.html',
+  templateUrl: './music-app.html',
   standalone: false,
 })
 export class MusicAppComponent {

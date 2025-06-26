@@ -1,17 +1,18 @@
 import { map, startWith } from 'rxjs/operators';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { SFService } from '../services/sf.service';
-import { SFInstrument } from '../../music/sfinstrument';
+import { SFService } from '../../services/sf.service';
+import { SFInstrument } from '../../../music/sfinstrument';
 import { FormControl } from '@angular/forms';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { Instrument } from '../../music/instrument';
+import { Instrument } from '../../../music/instrument';
 
 // import 'rxjs/add/operator/startWith';
 
 @Component({
   selector: 'instrument-detail',
-  templateUrl: 'instrument-detail.html',
+  templateUrl: './instrument-detail.html',
+  styleUrls: ['./instrument-detail.scss'],
   standalone: false,
 })
 export class InstrumentDetailComponent implements OnInit {

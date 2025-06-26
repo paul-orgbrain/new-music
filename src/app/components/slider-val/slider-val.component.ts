@@ -12,7 +12,8 @@ import { Observable, Subscriber, Subject } from 'rxjs';
 
 @Component({
   selector: 'slider-val',
-  templateUrl: 'slider-val.html',
+  templateUrl: './slider-val.html',
+  styleUrls: ['./slider-val.scss'],
   standalone: false,
 })
 export class SliderValComponent implements AfterViewInit, OnInit {

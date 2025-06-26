@@ -1,10 +1,6 @@
-import { SamplesService } from "./samples.service";
+import { SamplesService } from './samples.service';
 
-
-
-declare var audioContext: any
-
-
+declare var audioContext: any;
 
 // export class Sample {
 
@@ -24,27 +20,28 @@ declare var audioContext: any
 // }
 
 export class SamplePlayer {
+  setBuffer(_t22: string) {
+    throw new Error('Method not implemented.');
+  }
+  _gain: any;
+  constructor(public buffer: any) {
+    this._gain = audioContext.createGain();
+    this._gain.gain.value = 0.1;
+    this._gain.connect(audioContext.destination);
+  }
 
-    _gain: any
-    constructor(public buffer: any ) {
-        this._gain = audioContext.createGain();
-        this._gain.gain.value = 0.1
-        this._gain.connect(audioContext.destination);
-    }
+  play(when: number): void {
+    const source: any = audioContext.createBufferSource();
+    source.buffer = this.buffer;
+    source.connect(this._gain);
+    source.start(when);
+  }
 
+  set gain(val: number) {
+    this._gain.gain.value = val;
+  }
 
-    play(when: number): void {
-        const source: any = audioContext.createBufferSource();
-        source.buffer = this.buffer
-        source.connect(this._gain);
-        source.start(when)
-    }
-
-    set gain(val: number) {
-        this._gain.gain.value = val
-    }
+  get gain(): number {
+    return this._gain.gain;
+  }
 }
-
-
-
-

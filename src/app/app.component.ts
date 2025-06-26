@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DBService } from './services/db.service';
 import { MusicAppComponent } from './music-app.component';
 
-import { LoadDialog } from './dialogs/load.dialog';
+import { LoadDialog } from './dialogs/load/load.dialog';
 import { MetroDialog } from './dialogs/metro.dialog';
 
 import { SettingsService } from '../music/settings.service';

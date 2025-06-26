@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Player } from '../music/player';
 import { AIDetailComponent } from './ai-detail.component';
-import { InstrumentDetailComponent } from '../components/instrument-detail.component';
+import { InstrumentDetailComponent } from './intrument-detail/instrument-detail.component';
 import { AI } from '../music/ai';
 import { MatCard } from '@angular/material/card';
 import { DrumPlayer } from '../../music/drumplayer';
