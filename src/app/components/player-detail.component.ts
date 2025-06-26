@@ -13,7 +13,6 @@ import { MatCard } from '@angular/material/card';
 import { DrumPlayer } from '../../music/drumplayer';
 
 @Component({
-  moduleId: 'app/music/',
   selector: 'player-detail',
   templateUrl: 'player-detail.html',
   standalone: false,

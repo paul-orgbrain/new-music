@@ -5,7 +5,6 @@ import { SFService } from '../services/sf.service';
 import { NetService } from '../services/net.service';
 
 @Component({
-  moduleId: 'app/music/',
   selector: 'ai-detail',
   templateUrl: './ai-detail.html',
   standalone: false,

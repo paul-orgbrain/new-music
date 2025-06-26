@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Music } from '../../app/music/music';
+import { Music } from '../music/music';
 import { Thing } from '../../music/thing';
 import { Player } from '../music/player';
 

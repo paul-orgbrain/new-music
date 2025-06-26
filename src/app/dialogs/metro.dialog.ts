@@ -5,7 +5,6 @@ import { Metro } from '../../music/metro';
 declare var firebase: any;
 
 @Component({
-  moduleId: 'app/dialogs/',
   selector: 'metro-dialog',
   templateUrl: 'metro.html',
   standalone: false,

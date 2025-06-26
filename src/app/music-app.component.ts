@@ -4,7 +4,7 @@ import { DBService } from './services/db.service';
 import { NetService } from './services/net.service';
 import { SettingsService } from '../music/settings.service';
 import { SamplesService } from '../music/samples.service';
-import { Music } from '../app/music/music';
+import { Music } from './music/music';
 
 import { Monitor } from './music/monitor';
 
@@ -13,7 +13,6 @@ import { Monitor } from './music/monitor';
 declare var audioContext: any;
 
 @Component({
-  moduleId: 'app/',
   selector: 'musicApp',
   templateUrl: 'music-app.html',
   standalone: false,

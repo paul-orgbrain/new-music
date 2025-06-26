@@ -10,7 +10,6 @@ import { Instrument } from '../../music/instrument';
 // import 'rxjs/add/operator/startWith';
 
 @Component({
-  moduleId: 'app/music/',
   selector: 'instrument-detail',
   templateUrl: 'instrument-detail.html',
   standalone: false,

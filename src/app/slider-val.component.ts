@@ -11,7 +11,6 @@ import {
 import { Observable, Subscriber, Subject } from 'rxjs';
 
 @Component({
-  moduleId: './app/',
   selector: 'slider-val',
   templateUrl: 'slider-val.html',
   standalone: false,
