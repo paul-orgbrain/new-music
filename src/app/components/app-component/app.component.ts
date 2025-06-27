@@ -5,17 +5,17 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DBService } from './services/db.service';
-import { MusicAppComponent } from './music-app.component';
+import { DBService } from '../../services/db.service';
+import { MusicAppComponent } from '../music-app/music-app.component';
 
-import { LoadDialog } from './dialogs/load.dialog';
-import { MetroDialog } from './dialogs/metro.dialog';
+import { LoadDialog } from '../../dialogs/load.dialog';
+import { MetroDialog } from '../../dialogs/metro/metro.dialog';
 
-import { SettingsService } from '../music/settings.service';
+import { SettingsService } from '../../music-core/settings.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.html',
+  templateUrl: './app.html',
   standalone: false,
 })
 export class AppComponent {

@@ -1,25 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { AIDetailComponent } from './components/ai-detail.component';
-import { PlayerDetailComponent } from './components/player-detail.component';
-import { InstrumentDetailComponent } from './components/intrument-detail/instrument-detail.component';
-import { MusicComponent } from './components/music.component';
-import { MusicAppComponent } from './music-app.component';
+import { AppComponent } from './components/app-component/app.component';
+import { AIDetailComponent } from './components/ai-details/ai-detail.component';
+import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
+
+import { MusicComponent } from './components/music/music.component';
+import { MusicAppComponent } from './components/music-app/music-app.component';
 
 import { DBService } from './services/db.service';
 import { FirebaseDBService } from './services/firebasedb.service';
 import { SFService } from './services/sf.service';
-import { SettingsService } from '../music/settings.service';
+import { SettingsService } from './music-core/settings.service';
 import { NetService } from './services/net.service';
-import { SamplesService } from '../music/samples.service';
+import { SamplesService } from './music-core/samples.service';
 
-import { LoadDialog } from './dialogs/load/load.dialog';
-import { MetroDialog } from './dialogs/metro.dialog';
-import { MetroSlideComponent } from './components/metro-slide/metro-slide.component';
-import { MonitorComponent } from './components/monitor/monitor.component';
-import { SliderValComponent } from './components/slider-val/slider-val.component';
+import { MetroDialog } from './dialogs/metro/metro.dialog';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,8 +33,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { DrumkitScoreDetailComponent } from './drumkit-score-detail/drumkit-score-detail.component';
+import { DrumkitScoreDetailComponent } from './components/drumkit-score-detail/drumkit-score-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InstrumentDetailComponent } from './components/instrument-details/instrument-detail.component';
+import { LoadDialog } from './dialogs/load.dialog';
+import { MetroSlideComponent } from './dialogs/metro/metro-slide.component';
+import { MonitorComponent } from './components/monitor/monitor.component';
+import { SliderValComponent } from './components/slider-val/slider-val.component';
+import { TopComponent } from './components/top/top.component';
 
 @NgModule({
   imports: [
@@ -78,6 +80,7 @@ import { HttpClientModule } from '@angular/common/http';
     MonitorComponent,
     SliderValComponent,
     DrumkitScoreDetailComponent,
+    TopComponent,
   ],
   providers: [
     { provide: DBService, useClass: FirebaseDBService },
@@ -86,7 +89,7 @@ import { HttpClientModule } from '@angular/common/http';
     NetService,
     SettingsService,
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [TopComponent],
   // entryComponents: [LoadDialog, MetroDialog],
 })
 export class AppModule {}

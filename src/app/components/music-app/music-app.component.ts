@@ -1,20 +1,18 @@
 import { Component } from '@angular/core';
 
-import { DBService } from './services/db.service';
-import { NetService } from './services/net.service';
-import { SettingsService } from '../music/settings.service';
-import { SamplesService } from '../music/samples.service';
-import { Music } from './music/music';
+import { DBService } from '../../services/db.service';
+import { NetService } from '../../services/net.service';
+import { SettingsService } from '../../music-core/settings.service';
+import { SamplesService } from '../../music-core/samples.service';
+import { Music } from '../../music/music';
 
-import { Monitor } from './music/monitor';
-
-// Import theming functions
+import { Monitor } from '../../music/monitor';
 
 declare var audioContext: any;
 
 @Component({
   selector: 'musicApp',
-  templateUrl: 'music-app.html',
+  templateUrl: './music-app.html',
   standalone: false,
 })
 export class MusicAppComponent {

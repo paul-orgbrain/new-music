@@ -1,4 +1,4 @@
-import { Savable } from '../../music/savable';
+import { Savable } from '../music-core/savable';
 import { Generator } from './generator';
 import { DBService } from '../services/db.service';
 
@@ -82,6 +82,9 @@ export class Net extends Savable implements Net {
     this.setID(id);
     return id;
   }
+  // override setID(id: any) {
+  //   throw new Error('Method not implemented.');
+  // }
 }
 
 export class Perceptron extends Net {

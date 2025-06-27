@@ -1,9 +1,9 @@
 import { Player } from './player';
-import { Pulse } from '../../music/pulse';
-import { Ticker } from '../../music/ticker';
-import { Savable } from '../../music/savable';
+import { Pulse } from '../music-core/pulse';
+import { Ticker } from '../music-core/ticker';
+
 import { MidiBuffer } from './midibuffer';
-import { SFInstrument } from '../../music/sfinstrument';
+import { SFInstrument } from '../music-core/sfinstrument';
 
 const playAhead = 0.0;
 declare var audioContext: any;

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { DrumPlayer } from '../../music/drumplayer';
+import { DrumPlayer } from '../../music-core/drumplayer';
 
 @Component({
   selector: 'app-drumkit-score-detail',

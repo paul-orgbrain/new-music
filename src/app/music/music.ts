@@ -1,20 +1,20 @@
 import { DBService } from '../services/db.service';
 import { NetService } from '../services/net.service';
-import { SamplesService } from '../../music/samples.service';
-import { SettingsService } from '../../music/settings.service';
+import { SamplesService } from '../music-core/samples.service';
+import { SettingsService } from '../music-core/settings.service';
 import { AI } from './ai';
 import { AISquencer } from './aisequencer';
-import { Metro } from '../../music/metro';
+import { Metro } from '../music-core/metro';
 import { Mapper, MappedPlayer } from './mapper';
-import { SFInstrument } from '../../music/sfinstrument';
-import { Pulse } from '../../music/pulse';
+import { SFInstrument } from '../music-core/sfinstrument';
+import { Pulse } from '../music-core/pulse';
 import { Player, Band } from './player';
 
 import { MidiSequencer } from './midisequencer';
-import { Savable } from '../../music/savable';
+import { Savable } from '../music-core/savable';
 import { Generator } from './generator';
-import { Thing } from '../../music/thing';
-import { DrumPlayer } from '../../music/drumplayer';
+import { Thing } from '../music-core/thing';
+import { DrumPlayer } from '../music-core/drumplayer';
 
 declare var firebase: any;
 

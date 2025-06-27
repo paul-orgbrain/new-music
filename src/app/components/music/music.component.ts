@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Music } from '../music/music';
-import { Thing } from '../../music/thing';
-import { Player } from '../music/player';
+import { Music } from '../../music/music';
+import { Thing } from '../../music-core/thing';
+import { Player } from '../../music/player';
 
 @Component({
   selector: 'music-comp',

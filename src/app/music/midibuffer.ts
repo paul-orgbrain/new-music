@@ -1,4 +1,4 @@
-import { Savable } from '../../music/savable';
+import { Savable } from '../music-core/savable';
 
 export class MidiBuffer extends Savable {
   constructor(public buff: Array<any>, id: any) {

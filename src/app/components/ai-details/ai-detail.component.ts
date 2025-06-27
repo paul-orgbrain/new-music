@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AI } from '../music/ai';
-import { Generator } from '../music/generator';
-import { SFService } from '../services/sf.service';
-import { NetService } from '../services/net.service';
+import { AI } from '../../music/ai';
+import { Generator } from '../../music/generator';
+import { SFService } from '../../services/sf.service';
+import { NetService } from '../../services/net.service';
 
 @Component({
   selector: 'ai-detail',

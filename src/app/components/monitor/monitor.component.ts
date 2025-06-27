@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Monitor } from '../music/monitor';
+import { Monitor } from '../../music/monitor';
 @Component({
   selector: 'monitor',
   standalone: false,

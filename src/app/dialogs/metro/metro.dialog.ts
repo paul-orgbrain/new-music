@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Metro } from '../../music/metro';
+import { Metro } from '../../music-core/metro';
 
 declare var firebase: any;
 
 @Component({
   selector: 'metro-dialog',
-  templateUrl: 'metro.html',
+  templateUrl: './metro.html',
   standalone: false,
 })
 export class MetroDialog {

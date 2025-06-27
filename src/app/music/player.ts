@@ -1,12 +1,12 @@
-import { SFInstrument } from '../../music/sfinstrument';
-import { Ticker } from '../../music/ticker';
-import { Music } from '../../app/music/music';
-import { Savable } from '../../music/savable';
-import { MidiSequencer } from './midisequencer';
-import { Thing } from '../../music/thing';
+import { SFInstrument } from '../music-core/sfinstrument';
+import { Ticker } from '../music-core/ticker';
+import { Music } from './music';
+import { Savable } from '../music-core/savable';
+
+import { Thing } from '../music-core/thing';
 import { AI } from './ai';
 import { Mapper } from './mapper';
-import { Instrument } from '../../music/instrument';
+import { Instrument } from '../music-core/instrument';
 
 export class Band {
   players: Array<Player> = [];

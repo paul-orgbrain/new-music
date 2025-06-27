@@ -1,11 +1,11 @@
 import { map, startWith } from 'rxjs/operators';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { SFService } from '../services/sf.service';
-import { SFInstrument } from '../../music/sfinstrument';
+import { SFService } from '../../services/sf.service';
+import { SFInstrument } from '../../music-core/sfinstrument';
 import { FormControl } from '@angular/forms';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { Instrument } from '../../music/instrument';
+import { Instrument } from '../../music-core/instrument';
 
 // import 'rxjs/add/operator/startWith';
 

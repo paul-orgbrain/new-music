@@ -12,7 +12,7 @@ import { Observable, Subscriber, Subject } from 'rxjs';
 
 @Component({
   selector: 'slider-val',
-  templateUrl: 'slider-val.html',
+  templateUrl: './slider-val.html',
   standalone: false,
 })
 export class SliderValComponent implements AfterViewInit, OnInit {
@@ -24,7 +24,7 @@ export class SliderValComponent implements AfterViewInit, OnInit {
   @Input() unit: string;
   @Output() change = new EventEmitter();
 
-  @ViewChild('svgelement') svgElm: any;
+  @ViewChild('svgelement', { static: true }) svgElm: any;
 
   mouseMoveSubject: Subject<any> = new Subject();
   mouseUpSubject: Subject<any> = new Subject();
@@ -34,8 +34,8 @@ export class SliderValComponent implements AfterViewInit, OnInit {
 
   padLeft: number = 15;
   padRight: number = 15;
-  width: number;
-  height: number;
+  width: number = 15;
+  height: number = 15;
   textX: number;
   textY: number;
   bounds: any;
@@ -55,12 +55,11 @@ export class SliderValComponent implements AfterViewInit, OnInit {
     this.heightLabel = this.height / 3;
   }
 
-  ngOnInit() {
-    this.recalculateBounds();
-    console.log(this.value);
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
+    this.recalculateBounds();
+    console.log(this.value);
     new Observable<any>((observer: Subscriber<void>) =>
       window.addEventListener('resize', () => observer.next())
     ).subscribe(() => this.recalculateBounds());

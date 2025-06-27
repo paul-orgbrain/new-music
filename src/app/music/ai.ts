@@ -2,8 +2,8 @@ import { DBService } from '../services/db.service';
 import { NetService } from '../services/net.service';
 import { Net } from './net';
 
-import { Pulse } from '../../music/pulse';
-import { Savable } from '../../music/savable';
+import { Pulse } from '../music-core/pulse';
+import { Savable } from '../music-core/savable';
 
 import { Generator } from './generator';
 import { Scenable } from './scenable';

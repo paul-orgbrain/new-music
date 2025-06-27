@@ -1,5 +1,5 @@
 import { Player } from './player';
-import { SFInstrument } from '../../music/sfinstrument';
+import { SFInstrument } from '../music-core/sfinstrument';
 import { UNDEFINED } from '../../undefined';
 
 export class Mapper {

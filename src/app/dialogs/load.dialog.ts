@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { MusicAppComponent } from '../music-app.component';
+import { MusicAppComponent } from '../components/music-app/music-app.component';
 import { DBService } from '../services/db.service';
 
 declare var firebase: any;
