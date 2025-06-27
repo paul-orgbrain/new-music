@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
-// import { HttpModule, JsonpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-
-// import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { AIDetailComponent } from './components/ai-detail.component';
 import { PlayerDetailComponent } from './components/player-detail.component';
-import { InstrumentDetailComponent } from './components/instrument-detail.component';
+import { InstrumentDetailComponent } from './components/intrument-detail/instrument-detail.component';
 import { MusicComponent } from './components/music.component';
 import { MusicAppComponent } from './music-app.component';
 
@@ -18,11 +15,11 @@ import { SettingsService } from '../music/settings.service';
 import { NetService } from './services/net.service';
 import { SamplesService } from '../music/samples.service';
 
-import { LoadDialog } from './dialogs/load.dialog';
+import { LoadDialog } from './dialogs/load/load.dialog';
 import { MetroDialog } from './dialogs/metro.dialog';
-import { MetroSlideComponent } from './components/metro-slide.component';
-import { MonitorComponent } from './components/monitor.component';
-import { SliderValComponent } from './slider-val.component';
+import { MetroSlideComponent } from './components/metro-slide/metro-slide.component';
+import { MonitorComponent } from './components/monitor/monitor.component';
+import { SliderValComponent } from './components/slider-val/slider-val.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
